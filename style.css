@@ -4,9 +4,15 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+:root {
+    
+    --primary-color:rgb(66, 136, 136);
+    --secundary-color:rgb(102, 160, 160); 
+    --shadow-color:#757575;
+}
 
 body{
-    background-color: rgb(66, 136, 136);
+    background-color:var(--primary-color);
 }
 form {
     background-color: white;
@@ -14,6 +20,8 @@ form {
     width: 70%;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: 3px 3px 1px 0px;
+    color: var(--shadow-color);
 
     position: absolute;
     left: 50%;
@@ -21,13 +29,23 @@ form {
     transform: translate(-50%, -50%);
     /* definindo no meio da tela */
 }
+
+.password,
+.email,
+.user,
+.tel  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 input{
     border-radius: 5px;
 }
 
 h3{
     text-align: center;
-    color: rgb(66, 136, 136); 
+    color: var(--primary-color);
 }
 
 form input[type=text],
@@ -43,10 +61,34 @@ form input[type=button]{
     width: 100%;
     height: 3rem;
     cursor:pointer;
-    background-color: rgb(66, 136, 136);
+    background-color: var(--primary-color);
     color: white;
     border: 0;
 }
 form input[type=button]:hover{
-    background-color:rgb(102, 160, 160); 
+    background-color:var(--secundary-color);
+}
+
+p {
+    color: var(--shadow-color);
+    margin-top: 10px;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+    color:rgb(134, 14, 247) ;
+}
+.fa-eye,
+.fa-envelope,
+.fa-pencil,
+ .fa-phone
+{
+   position: absolute;
+   right: 30px;
+    cursor: pointer;
+    color: #757575;
+
 }

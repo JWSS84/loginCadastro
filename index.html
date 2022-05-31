@@ -7,14 +7,38 @@
     <title>Formulario de cadastro</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+ 
 <body>
     <form>
         <h3>Faça seu login</h3>
-        <input type="text" name="email" placeholder="digite seu email">
-        <input type="password" name="senha" placeholder="digite sua senha">
+        <div class="email">
+            <input type="text" name="email" placeholder="digite seu email" required>
+            <i class="fa fa-envelope"
+             
+              aria-hidden="true"></i>
+        </div>
+        
+        <div class="password">
+            <input type="password" id="password" name="senha" placeholder="digite sua senha"  required>
+            <i class="fa fa-eye" 
+            
+            aria-hidden="true"></i>
+        </div>
+        
+        
         <input type="button" name="acao" value="Enviar">
+        <br>
+        <div>
+          
+        </div>
+        <p>Não tem uma conta?
+            <a href="./form.html">Cadastre-se</a>
+        </p>
     </form>
+    
+    
     <script src="main.js"></script>
 </body>
 </html>
