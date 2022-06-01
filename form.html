@@ -11,22 +11,33 @@
 <body>
     <form>
         <h3>Preencha o formulário de cadastro</h3>
+        <div id="msgError">
+
+        </div>
+        <div id="msgSuccess">
+            
+        </div>
+
         <div class="user">
-            <input type="text" name="nome" placeholder="digite seu nome" required>
+            <label for="nome" id="labelNome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="digite seu nome" required>
             <i class="fa fa-pencil" aria-hidden="true"></i>
         </div>
         <div class="cpf">
-            <input type="text" name="cpf" placeholder="digite seu cpf" required>
+            <label for="nome" id="labelCpf">Cpf</label>
+            <input type="text" id="cpf" name="cpf" placeholder="digite seu cpf" required>
         </div>
         <div class="tel">
-            <input type="text" name="fone" placeholder="digite seu telefone" required>
+            <label for="nome" id="labelFone">Telefone</label>
+            <input type="text" id="fone" name="fone" placeholder="digite seu telefone" required>
             <i class="fa fa-phone" aria-hidden="true"></i>
         </div>
         
-        <input type="button" name="acao" value="Cadastrar">
-        <br>
+       
+        <button id="btn-cad" onclick="cadastrar()">Cadastrar</button>
         
         
     </form>
+    <script src="main.js"></script>
 </body>
 </html>
