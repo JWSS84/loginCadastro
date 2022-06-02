@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>formulario de cadastro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
     <form>
-        <h3>Preencha o formulário de cadastro</h3>
-        <div id="msgError">
+      <h3>Preencha o formulário de cadastro</h3>
+      <div id="msgError"></div>
+      <div id="msgSuccess"></div>
 
-        </div>
-        <div id="msgSuccess">
-            
-        </div>
+      <div class="user">
+        <label for="nome" id="labelNome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          placeholder="digite seu nome"
+          required
+        />
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </div>
+      <div class="cpf">
+        <label for="nome" id="labelCpf">Cpf</label>
+        <input
+          type="text"
+          id="cpf"
+          name="cpf"
+          placeholder="digite seu cpf"
+          required
+        />
+      </div>
+      <div class="tel">
+        <label for="nome" id="labelFone">Telefone</label>
+        <input
+          type="text"
+          id="fone"
+          name="fone"
+          placeholder="digite seu telefone"
+          required
+        />
+        <i class="fa fa-phone" aria-hidden="true"></i>
+      </div>
 
-        <div class="user">
-            <label for="nome" id="labelNome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="digite seu nome" required>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-        </div>
-        <div class="cpf">
-            <label for="nome" id="labelCpf">Cpf</label>
-            <input type="text" id="cpf" name="cpf" placeholder="digite seu cpf" required>
-        </div>
-        <div class="tel">
-            <label for="nome" id="labelFone">Telefone</label>
-            <input type="text" id="fone" name="fone" placeholder="digite seu telefone" required>
-            <i class="fa fa-phone" aria-hidden="true"></i>
-        </div>
-        
-       
-        <button id="btn-cad" onclick="cadastrar()">Cadastrar</button>
-        
-        
+      <button id="btn-cad" onclick="cadastrar()">Cadastrar</button>
     </form>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

@@ -2,13 +2,6 @@ let btn = document.querySelector('.fa-eye')
 let msgError = document.querySelector('#msgError')
 let msgSuccess = document.querySelector('#msgSuccess')
 
-let email = document.querySelector('#email')
-let labelEmail = document.querySelector('#labelEmail')
-
-
-let senha = document.querySelector('#password')
-let labelSenha = document.querySelector('#labelSenha')
-
 let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
 let validNome = false;
@@ -21,25 +14,7 @@ let fone = document.querySelector('#fone')
 let labelFone = document.querySelector('#labelFone')
 let validFone = false;
 
-// email.addEventListener('keyup', () => {
-//     if (email.value.length <= 10) {
-//         labelEmail.setAttribute('style', 'color:red')
-//         labelEmail.innerHTML = '<i>E-mail *Insira um email de formato correto; ex: nome@gmail.com</i>'
-//     } else {
-//         labelEmail.setAttribute('style', 'color:green')
-//         labelEmail.innerHTML = 'E-mail'
-//     }
-// })
-// senha.addEventListener('keyup', () => {
-//     if (senha.value.length <= 5) {
-//         labelSenha.setAttribute('style', 'color:red')
-//         labelSenha.innerHTML = '<i>Senha *Insira uma senha de 6 caracteres</i>'
-//     } else {
-//         labelSenha.setAttribute('style', 'color:green')
-//         labelSenha.innerHTML = 'Senha'
-//     }
-// })
-
+// validaçoes dos campos do formulario de cadastro
 nome.addEventListener('keyup', () => {
     if (nome.value.length <= 2) {
         labelNome.setAttribute('style', 'color:red')
@@ -65,8 +40,8 @@ cpf.addEventListener('keyup', () => {
 fone.addEventListener('keyup', () => {
     if (fone.value.length < 9) {
         labelFone.setAttribute('style', 'color:red')
-            labelFone.innerHTML = '<i>Telefone *Insira apenas os 9 dígitos do telefone</i>'
-            validFone = false;
+        labelFone.innerHTML = '<i>Telefone *Insira apenas os 9 dígitos do telefone</i>'
+        validFone = false;
     } else {
         labelFone.setAttribute('style', 'color:green')
         labelFone.innerHTML = 'Telefone'
@@ -78,20 +53,66 @@ fone.addEventListener('keyup', () => {
 btn.addEventListener('click', () => {
     let inputPassword = document.querySelector('#password')
 
-    if(inputPassword.getAttribute('type') == 'password'){
-        inputPassword.setAttribute('type','text')
-    }else{
-        inputPassword.setAttribute('type','password')
+    if (inputPassword.getAttribute('type') == 'password') {
+        inputPassword.setAttribute('type', 'text')
+    } else {
+        inputPassword.setAttribute('type', 'password')
     }
 })
 
+// funcao realizar o login, validando com o localstorage
+function entrar() {
+    let nomeUser = document.querySelector('#nome')
+
+    let listaUser = []
+
+    let userValid = {
+        nome: '',
+        user: ''
+    }
+
+    listaUser = JSON.parse(localStorage.getItem('listaUser'))
+    listaUser.forEach((item) => {
+        if (nomeUser.value == userValid.user) {
+
+            userValid = {
+                nome: item.nome,
+                user: item.user
+
+            }
+
+        }
+    });
+
+}
+// funcao de cadastro e armazenamento no localstorage
 function cadastrar() {
     if (validNome && validCpf && validFone) {
+        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+
+        listaUser.push({
+            user: nome.value,
+            cpf: cpf.value,
+            fone: fone.value
+        })
+
+        localStorage.setItem('listaUser', JSON.stringify(listaUser))
+
         msgSuccess.setAttribute('style', 'display:block')
-        msgSuccess.innerHTML = 'cadastrando usuário'
-    }else{
+        msgSuccess.innerHTML = 'cadastrando usuário...';
+        msgError.setAttribute('style', 'display:none')
+        msgError.innerHTML = ''
+
+        setTimeout(() => {
+            window.location.href = "./index.html";
+        }, 3000)
+
+
+    } else {
         msgError.setAttribute('style', 'display:block')
         msgError.innerHTML = 'preencha os campos obrigatórios antes de cadastrar!'
+        msgSuccess.setAttribute('style', 'display:none')
+        msgSuccess.innerHTML = '';
     }
-    
+
 }
