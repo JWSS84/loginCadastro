@@ -18,12 +18,12 @@
       <h3>Faça seu login</h3>
       <div id="msgError"></div>
 
-      <div class="email">
-        <label for="email" id="labelNome">Nome</label>
+      <div class="nome">
+        <label for="nome" id="labelNome">Nome</label>
         <input
           type="text"
           id="nome"
-          name="email"
+          name="nome"
           placeholder="digite o nome do usuário"
           required
         />
@@ -39,21 +39,21 @@
           placeholder="digite sua senha"
           required
         />
-        <i class="fa fa-eye" aria-hidden="true"></i>
+        <i class="fa fa-eye" id="icon" aria-hidden="true"></i>
       </div>
 
-      <button id="btn-cad" onclick="entrar()">
-        Entrar <a href="./home.html"></a>
+      <button id="btn-cad" onclick="entrar()" type="button">
+        Entrar 
       </button>
 
       <br />
-      <div></div>
+      
       <p>
         Não tem uma conta?
-        <a href="./form.html">Cadastre-se</a>
+        <a href="form.html" target="_self">Cadastre-se</a>
       </p>
     </form>
 
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

@@ -34,7 +34,7 @@ form {
 }
 
 .password,
-.email,
+.nome,
 .user,
 .tel {
   display: flex;
@@ -141,7 +141,7 @@ h1{
 
 .catalogo{
   margin: 6px;
-  padding: 6px;
+  padding: 6px; 
 }
 footer {
   background-color: white;
@@ -149,3 +149,9 @@ footer {
   padding: 15px;
   
 }
+
+
+
+
+
+

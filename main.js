@@ -1,6 +1,11 @@
-let btn = document.querySelector('.fa-eye')
+let btn = document.querySelector('#icon')
 let msgError = document.querySelector('#msgError')
 let msgSuccess = document.querySelector('#msgSuccess')
+
+let senha = document.querySelector('#password')
+let labelSenha = document.querySelector('#labelSenha')
+let validSenha = false;
+
 
 let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
@@ -15,6 +20,17 @@ let labelFone = document.querySelector('#labelFone')
 let validFone = false;
 
 // validaçoes dos campos do formulario de cadastro
+senha.addEventListener('keyup', () => {
+    if (senha.value.length <= 5) {
+        labelSenha.setAttribute('style', 'color:red')
+        labelSenha.innerHTML = '<i>Senha * Insira no mínimo 6 caracteres</i>'
+        validSenha = false;
+    } else {
+        labelSenha.setAttribute('style', 'color:green')
+        labelSenha.innerHTML = 'Senha'
+        validSenha = true;
+    }
+})
 nome.addEventListener('keyup', () => {
     if (nome.value.length <= 2) {
         labelNome.setAttribute('style', 'color:red')
@@ -51,17 +67,19 @@ fone.addEventListener('keyup', () => {
 
 
 btn.addEventListener('click', () => {
-    let inputPassword = document.querySelector('#password')
+    let inputSenha = document.querySelector('#password')
 
-    if (inputPassword.getAttribute('type') == 'password') {
-        inputPassword.setAttribute('type', 'text')
+    if (inputSenha.getAttribute('type') == 'password') {
+        inputSenha.setAttribute('type', 'text')
     } else {
-        inputPassword.setAttribute('type', 'password')
+        inputSenha.setAttribute('type', 'password')
     }
 })
 
-// funcao realizar o login, validando com o localstorage
+// funcao realizar o login
+
 function entrar() {
+    window.location.href = "./home.html"
     let nomeUser = document.querySelector('#nome')
 
     let listaUser = []
@@ -78,15 +96,15 @@ function entrar() {
             userValid = {
                 nome: item.nome,
                 user: item.user
-
             }
 
         }
-    });
+    })
 
 }
 // funcao de cadastro e armazenamento no localstorage
 function cadastrar() {
+    window.location.href = "./home.html";
     if (validNome && validCpf && validFone) {
         let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
 
@@ -104,7 +122,7 @@ function cadastrar() {
         msgError.innerHTML = ''
 
         setTimeout(() => {
-            window.location.href = "./index.html";
+            window.location.href = "./home.html";
         }, 3000)
 
 
