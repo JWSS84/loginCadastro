@@ -119,3 +119,33 @@ a:hover {
   border-radius: 4px;
   display: none;
 }
+/* tela home */
+img {
+  width:450px;
+  height:250px;
+  margin: 10px;
+}
+
+#title-home{
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1{
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.catalogo{
+  margin: 6px;
+  padding: 6px;
+}
+footer {
+  background-color: white;
+  color:var(--primary-color);
+  padding: 15px;
+  
+}
